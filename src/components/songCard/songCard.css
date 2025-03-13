@@ -1,0 +1,40 @@
+.songcard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-top: 0px;
+}
+
+.current-song-title {
+    color: white;
+}
+
+.current-song-cover {
+    border-radius: 10px;
+    width: 80%;
+    height: 80%;
+    margin-top: 90px;
+    box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.581);
+}
+
+.btn-row {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.current-song-play-btn, .next-song-btn, .prev-song-btn {
+    height: 18%;
+    width: 18%;
+}
+
+.prev-song-btn {
+    rotate: 180deg;
+}
+
+.current-track-artist {
+    margin-top: -10px;
+    color: white;
+}
