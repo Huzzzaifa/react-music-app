@@ -11,15 +11,16 @@ export default function Player() {
     const location = useLocation();
     const [tracks, setTracks] = useState([]);
     const [currentTrack, setCurrentTrack] = useState();
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState();
     const [playlist, setPlaylist] = useState([]);
     const [showSongCard, setShowSongCard] = useState(false);
+    const [queue, setQueue] = useState(false);
 
     useEffect(() => {
       if (location.state) {
         apiClient.get("playlists/" + location.state?.id)
           .then(res => {
-            if (res.data?.tracks?.items) { // ✅ Check if tracks & items exist
+            if (res.data?.tracks?.items) {
               setTracks(res.data.tracks.items);
               setPlaylist(res.data);
             } else {
@@ -29,8 +30,12 @@ export default function Player() {
           .catch(error => {
             console.error("Error fetching playlist:", error);
           });
-      }
+        }
     }, [location.state]);
+
+    useEffect(() => {
+          setQueue(tracks.slice(currentIndex + 1, tracks.length));
+      }, [currentIndex])
     
     return (
       <>
@@ -46,10 +51,11 @@ export default function Player() {
             <h1 className="playlist-name">{playlist.name}</h1>
             <p className="playlist-description">{playlist.description}</p>
           </div>
-          {tracks.map((track)=> (
+          {tracks.map((track, index)=> (
             <div className="songs-column">
               <div className="song" onClick={() => {
-                  setCurrentTrack(track); 
+                  setCurrentTrack(track);
+                  setCurrentIndex(index) 
                   setShowSongCard(true);
                   }}>
                   <img 
@@ -74,7 +80,10 @@ export default function Player() {
             <div className="songcard">
               <SongCard currentTrack={currentTrack}/>
             </div>
-            <Queue />
+            {/*<h1>{tracks.indexOf(currentTrack)}</h1>
+            <h1>{tracks.length}</h1>*/}
+            <Queue queue={queue}/>
+            <h1>{currentIndex}</h1>
         </motion.div>
         }
       </div>

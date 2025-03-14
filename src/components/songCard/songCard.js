@@ -10,7 +10,6 @@ import { ColorExtractor } from "react-color-extractor";
 export default function SongCard({ currentTrack }) {
 
     const [cardColour, setCardColour] = useState();
-    console.log(cardColour);
 
     return (
         <div>
