@@ -5,6 +5,7 @@ import apiClient from "../../spotify";
 import SongCard from "../../components/songCard/songCard";
 import Queue from "../../components/queue/queue";
 import error_rendering_logo from '../../images/failed_to_load.png';
+import { motion } from "framer-motion";
 
 export default function Player() {
     const location = useLocation();
@@ -64,12 +65,17 @@ export default function Player() {
           ))}
         </div>
         {showSongCard &&
-        <div className="right-player-body">
-          <div className="songcard">
-            <SongCard currentTrack={currentTrack}/>
-          </div>
-          <Queue />
-        </div>
+        <motion.div
+            className="right-player-body"
+            initial={{ x: "100%" }}
+            animate={{ x: showSongCard ? "0%" : "100%" }}
+            transition={{ duration: 0.5, ease: "easeInOut"}}
+        >
+            <div className="songcard">
+              <SongCard currentTrack={currentTrack}/>
+            </div>
+            <Queue />
+        </motion.div>
         }
       </div>
     </>
