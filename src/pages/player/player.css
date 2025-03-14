@@ -13,7 +13,7 @@
     width: 30%;
     height: 100%;
     background-color: #1E1E1E;
-
+    animation: 3s ease-in 1s infinite reverse both running slidein;
 }
 
 .songs-column {
@@ -61,3 +61,4 @@
 .playlist-description {
     margin-bottom: 30px;
 }
+
