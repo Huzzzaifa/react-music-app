@@ -39,11 +39,11 @@
 .song {
     display: flex;
     flex-direction: row;
-    cursor: pointer;
 }
 
 .track-artist-name {
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .playlist-name {

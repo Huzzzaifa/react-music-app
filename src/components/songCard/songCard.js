@@ -4,6 +4,7 @@ import pauseButton from "../../images/pause-button.png";
 import moveSongButton from "../../images/play-button.png";
 import emptyTrack from "../../images/failed_to_load.png";
 import { ColorExtractor } from "react-color-extractor";
+import { motion } from "framer-motion";
 
 
 
@@ -27,9 +28,18 @@ export default function SongCard({ currentTrack }) {
                         </img>
                     </ColorExtractor>
                     <h2 className="current-song-title">
-                        { currentTrack.track.name.length < 34 ? 
-                            currentTrack.track.name : 
-                            currentTrack.track.name.slice(0, 34) + "..."}
+                        { currentTrack.track.name.length < 34 ? currentTrack.track.name : 
+                            <motion.div
+                                className="current-song-title"
+                                animate={{ x: [200, 200, 0] }} // Move right, then left, then reset
+                                transition={{
+                                    ease: "easeInOut",
+                                    duration: 8, // Adjust speed
+                                    repeat: Infinity, // Infinite loop
+                                }}>
+                                <span>{currentTrack.track.name}</span>
+                            </motion.div>
+                        }
                     </h2>
                     <p className="current-track-artist">
                         {currentTrack.track.artists[0].name}

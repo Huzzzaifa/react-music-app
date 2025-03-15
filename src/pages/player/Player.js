@@ -60,7 +60,7 @@ export default function Player() {
                   }}>
                   <img 
                     className="album-cover"
-                    src={track.track.album.images?.[2]?.url || {error_rendering_logo}}>
+                    src={track.track.album.images?.[1]?.url || {error_rendering_logo}}>
                   </img>                  
                   <div className="track-artist-name">
                     <strong className="track-name">{track.track.name}</strong>
@@ -80,10 +80,7 @@ export default function Player() {
             <div className="songcard">
               <SongCard currentTrack={currentTrack}/>
             </div>
-            {/*<h1>{tracks.indexOf(currentTrack)}</h1>
-            <h1>{tracks.length}</h1>*/}
             <Queue queue={queue}/>
-            <h1>{currentIndex}</h1>
         </motion.div>
         }
       </div>

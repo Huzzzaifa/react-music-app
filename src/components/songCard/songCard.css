@@ -4,10 +4,20 @@
     align-items: center;
     padding-bottom: 20px;
     margin-top: 0px;
+
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+    position: relative;
 }
 
 .current-song-title {
     color: white;
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .current-song-cover {
