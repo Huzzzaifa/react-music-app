@@ -80,7 +80,7 @@ export default function Player() {
             <div className="songcard">
               <SongCard currentTrack={currentTrack}/>
             </div>
-            <Queue queue={queue}/>
+            <Queue queue={queue} setCurrentIndex={setCurrentIndex} setCurrentTrack={setCurrentTrack}/>
         </motion.div>
         }
       </div>

@@ -1,0 +1,15 @@
+.queue-container {
+    .song:hover {
+        transform: scale(0.96);
+        transition: all 0.2s ease;
+    }
+    .songs-column {
+        height: 50%;
+        overflow-y: auto;
+    }
+    .song {
+        margin-bottom: 3px;
+    }
+}
+
+
